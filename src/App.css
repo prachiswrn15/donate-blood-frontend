@@ -1,0 +1,828 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+.home-background,
+.home-background-overlay {
+  min-height: 100vh;
+  background-image: url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-background-overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+}
+
+
+.glass-navbar {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(220, 53, 69, 0.1);
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #dc3545 !important;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar .nav-link:hover {
+  background-color: #dc3545;
+  color: white !important;
+}
+
+.navbar .nav-link.active {
+  color: #dc3545 !important;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #dc3545;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbar .btn-outline-danger {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-width: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+
+.view-requests-background {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.custom-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.custom-table th,
+.custom-table td {
+  vertical-align: middle;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+.manage-requests-background {
+  min-height: 100vh;
+  background-image: url('https://user-images.githubusercontent.com/106293646/236382080-c6479537-5e6a-4f57-a3c9-7aabceec50ed.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.manage-requests-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+/* Status Badges */
+.status-badge {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+.profile-card {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.profile-card h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.profile-card img {
+  object-fit: cover;
+  border: 3px solid #dc3545;
+}
+
+.user-info p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-success,
+.btn-secondary,
+.btn-outline-success,
+.btn-outline-danger {
+  border-radius: 20px;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+}
+
+/* 🩸 Blood Request Cards */
+.section-divider {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.blood-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.blood-card:hover {
+  transform: translateY(-6px);
+}
+
+.blood-card .btn {
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+
+.contact-background {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8)
+  ), url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 15px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.contact-image-side {
+  flex: 1;
+  background-image: url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: auto;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+
+.overlay-text {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.overlay-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info-side {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.contact-form button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.change-password-background {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.change-password-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.custom-input {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  outline: none;
+}
+
+.custom-btn {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.02);
+}
+
+.register-background {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.register-card {
+  max-width: 450px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.register-card:hover {
+  transform: scale(1.01);
+}
+
+.register-card h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #dc3545;
+}
+
+.register-card input {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.register-card input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  outline: none;
+}
+
+.register-card .btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #dc3545;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.register-card .btn-primary:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+.request-background {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 40px 15px;
+}
+
+.request-card {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.custom-input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  outline: none;
+}
+
+.custom-btn {
+  background-color: #dc3545;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.02);
+}
+.home-background {
+  background: linear-gradient(135deg, #ff1744, #651fff);
+  min-height: 100vh;
+  padding-top: 60px;
+  background-attachment: fixed;
+}
+
+.heading-glow {
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff4081, 0 0 30px #ff4081;
+  font-weight: bold;
+}
+
+.section-divider {
+  border-left: 5px solid #fff;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.summary-card {
+  padding: 30px 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.summary-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blood-card {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.blood-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.blood-card {
+  background-color: #f8f9fa; 
+  border: 1px solid #dee2e6;
+  color: #212529; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blood-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.blood-card .btn {
+  background-color: #007bff;
+  color: white;
+  font-weight: 500;
+}
+
+.blood-card .btn:hover {
+  background-color: #0056b3;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to right, #f0f4f8, #e0f7fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+
+
+.login-input {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  transition: 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: #007b5e;
+  box-shadow: 0 0 5px rgba(0, 123, 94, 0.3);
+}
+
+
+.login-button {
+  background-color: #007b5e;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #005f46;
+}
+/* Manage Requests Card Styling */
+.manage-requests-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Improvements */
+.custom-table th,
+.custom-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Buttons */
+.btn-danger {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Status badges custom (already exists, improving) */
+.status-badge {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.accepted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+/* Contact Page Wrapper */
+/* Background with image + overlay */
+/* Contact Page Background + Overlay */
+.contact-background {
+  background: url('https://thumbs.dreamstime.com/b/hospital-building-ambulance-urban-background-modern-medical-center-first-aid-84563364.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.contact-background .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+/* Quotes Section */
+.quotes-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quotes-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: crimson;
+}
+
+.quotes-section p {
+  font-size: 1.2rem;
+  margin: 0.3rem 0;
+  font-style: italic;
+}
+
+/* Contact Wrapper */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Info Card */
+.contact-info-side .contact-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 350px;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.contact-info-side .contact-card a {
+  color: crimson;
+  text-decoration: none;
+}S
+.contact-info-side .contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs */
+.custom-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+/* Contact Form */ .contact-form { background: rgba(255,255,255,0.2); border-radius: 15px; padding: 2rem; max-width: 400px; width: 100%; color: #333; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
+.custom-input:focus {
+  outline: none;
+  border-color: crimson;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Button */
+.custom-btn {
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-btn:hover {
+  background: darkred;
+  transform: scale(1.03);
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Specific colors */
+.phone-btn {
+  background: crimson;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info-side,
+  .contact-form {
+    max-width: 90%;
+  }
+}

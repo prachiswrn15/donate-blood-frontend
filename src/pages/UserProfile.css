@@ -1,0 +1,74 @@
+/* src/pages/Profile.css */
+
+.profile-container {
+    max-width: 800px;
+  }
+  
+  .profile-card {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #dc3545;
+  }
+  
+  .btn {
+    min-width: 120px;
+  }
+  /* UserProfile.css */
+
+.profile-container.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .profile-container.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #333;
+  }
+  
+  .profile-container.dark-mode input,
+  .profile-container.dark-mode select {
+    background-color: #2c2c2c;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  .animated-fade {
+    animation: fadeIn 0.6s ease-in;
+  }
+  .profile-background {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+      url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+ 
+  .profile-background.dark-mode {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+      url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
