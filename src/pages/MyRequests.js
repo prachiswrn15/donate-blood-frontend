@@ -2,20 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
 export default function MyRequests() {
   const [rows, setRows] = useState([]);
   const prevMap = useRef(new Map());
-
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   const email = user?.email;
-
   const load = async () => {
     if (!email) return;
     try {
       const res = await axios.get(`http://localhost:8080/api/requests/user/${encodeURIComponent(email)}`);
       const data = res.data || [];
-
       data.forEach(r => {
         const old = prevMap.current.get(r.id);
         if (old && old !== r.status) {
@@ -33,7 +29,6 @@ export default function MyRequests() {
       console.error("Error loading requests:", err);
     }
   };
-
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this request?")) return;
     try {
@@ -51,9 +46,7 @@ export default function MyRequests() {
     const t = setInterval(load, 10000); // 10s poll
     return () => clearInterval(t);
   }, [email]);
-
   if (!email) return <div className="container mt-4">Please login to view your requests.</div>;
-
   return (
     <div className="container mt-5">
       <h3 className="text-danger mb-3">My Blood Requests</h3>
@@ -72,7 +65,7 @@ export default function MyRequests() {
               <th>Reason</th>
               <th>Status</th>
               <th>Accepted By</th>
-              <th>Action</th> {/* ✅ New Column */}
+              <th>Action</th> {/* New Column */}
             </tr>
           </thead>
           <tbody>
@@ -105,14 +98,12 @@ export default function MyRequests() {
     </button>
   )}
 </td>
-
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
+   </tr>
+ ))}
+  </tbody>
+  </table>
       )}
-      <small className="text-muted">Auto-refresh every 10 seconds</small>
+ <small className="text-muted">Auto-refresh every 10 seconds</small>
     </div>
   );
 }
