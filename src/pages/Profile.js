@@ -1,7 +1,5 @@
-// src/pages/Profile.js
 
 import React from 'react';
-
 function Profile() {
   return (
     <div className="container mt-5">
@@ -10,5 +8,4 @@ function Profile() {
     </div>
   );
 }
-
 export default Profile;
