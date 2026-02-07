@@ -2,30 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../App.css';
-
-
-
 const Home = () => {
   const [requests, setRequests] = useState([]);
-
   useEffect(() => {
     axios.get('http://localhost:8080/api/requests')
       .then((response) => setRequests(response.data))
       .catch((error) => console.error('Error fetching requests:', error));
   }, []);
-
   const totalRequests = requests.length;
   const urgentRequests = requests.filter(r => r.urgency === "High").length;
   const bloodGroupCounts = requests.reduce((acc, curr) => {
     acc[curr.bloodGroup] = (acc[curr.bloodGroup] || 0) + 1;
     return acc;
   }, {});
-
   return (
     <div className="home-background">
       <div className="container py-5">
         <h2 className="text-center text-white mb-4">Donate Blood, Save Lives</h2>
-
     {/* Summary Cards */}
     <div className="row text-center mb-4 g-4">
       <div className="col-md-4">
@@ -41,7 +34,6 @@ const Home = () => {
           <h3>{urgentRequests}</h3>
         </div>
       </div>
-
       <div className="col-md-4">
         <div className="summary-card bg-success text-white shadow">
           <h5>Blood Group Count</h5>
@@ -53,7 +45,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-
     {/* Section Title */}
     <h4 className="text-white section-divider">Available Blood Requests</h4>
 
@@ -84,8 +75,6 @@ const Home = () => {
     </div>
   </div>
 </div>
-
   );
 };
-
 export default Home;
