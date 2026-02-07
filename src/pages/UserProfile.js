@@ -46,7 +46,6 @@ function UserProfile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleUpdate = () => {
     axios.put('http://localhost:8080/api/users/update', formData)
       .then(res => {
