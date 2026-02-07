@@ -1,16 +1,13 @@
-// src/components/Navbar.js
+
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaUserCircle, FaSignInAlt, FaSignOutAlt, FaPhoneAlt, FaUserPlus, FaTint, FaList } from 'react-icons/fa';
-
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-
   let loggedInUser = null;
   let role = null;
-
   try {
     const storedUser = localStorage.getItem("loggedInUser");
     loggedInUser = storedUser ? JSON.parse(storedUser) : null;
@@ -27,9 +24,7 @@ function Navbar() {
     toast.success("Logged out successfully!");
     setTimeout(() => navigate("/login"), 100);
   };
-
   const isActive = (path) => location.pathname === path;
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-4 sticky-top">
       <div className="container-fluid">
@@ -54,7 +49,6 @@ function Navbar() {
                 </li>
               </>
             )}
-
             {loggedInUser && role === "patient" && (
               <>
                 <li className="nav-item">
@@ -69,7 +63,6 @@ function Navbar() {
                 </li>
               </>
             )}
-
             {loggedInUser && role === "donor" && (
               <>
                 <li className="nav-item">
@@ -84,7 +77,6 @@ function Navbar() {
                 </li>
               </>
             )}
-
             {loggedInUser && role === "admin" && (
               <>
                 <li className="nav-item">
@@ -99,7 +91,6 @@ function Navbar() {
                 </li>
               </>
             )}
-
             {loggedInUser && (
               <>
                 <li className="nav-item">
@@ -119,13 +110,11 @@ function Navbar() {
                 </li>
               </>
             )}
-
             <li className="nav-item">
               <Link className={`nav-link ${isActive("/contact") ? "active text-primary fw-bold" : ""}`} to="/contact">
                 <FaPhoneAlt className="me-2" /> Contact Us
               </Link>
             </li>
-
           </ul>
         </div>
       </div>
