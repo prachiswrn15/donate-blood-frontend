@@ -1,20 +1,16 @@
-// src/pages/RequestDetails.js
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
 const RequestDetails = () => {
   const { id } = useParams();
   const [request, setRequest] = useState(null);
-
   useEffect(() => {
     axios.get(`http://localhost:8080/api/requests/${id}`)
       .then((res) => setRequest(res.data))
       .catch((err) => console.error('Error fetching request details:', err));
   }, [id]);
-
   if (!request) return <p>Loading...</p>;
-
   return (
     <div className="container mt-5">
       <div className="card shadow p-4">
