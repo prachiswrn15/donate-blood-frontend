@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrash } from "react-icons/fa";
-
 function ManageRequests() {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const userRole = (localStorage.getItem("role") || "").toLowerCase();
   const currentUser = localStorage.getItem("username");
-
   useEffect(() => {
     fetchRequests();
   }, []);
-
   const fetchRequests = async () => {
     try {
       setLoading(true);
@@ -28,7 +25,6 @@ function ManageRequests() {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this request?")) return;
-
     try {
       await axios.delete(`http://localhost:8080/api/requests/${id}`);
       setRequests(requests.filter((req) => req.id !== id));
@@ -37,7 +33,6 @@ function ManageRequests() {
       alert("Failed to delete request. Try again!");
     }
   };
-
   return (
     <div className="manage-requests-background">
       <div className="container">
@@ -45,7 +40,6 @@ function ManageRequests() {
           <h2 className="mb-4 text-center text-danger fw-bold heading-glow">
             🩸 Manage Blood Requests
           </h2>
-
           {loading ? (
             <div className="text-center py-5">
               <div className="spinner-border text-danger" role="status"></div>
