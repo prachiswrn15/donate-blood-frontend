@@ -2,11 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
-
-
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -23,12 +18,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import ViewMessage from "./components/ViewMessage";
 import MyRequests from './pages/MyRequests';
 import DonationHistory from './components/DonationHistory';
-
-
-
-
-
-
 function App() {
   return (
     <Router>
@@ -41,32 +30,27 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/message" element={<ViewMessage />} />
         <Route path="/donation-history" element={<DonationHistory />} />
-
         {/* Protected */}
         <Route path="/user-profile" element={
           <ProtectedRoute allowedRoles={["donor", "patient", "admin", "user"]}>
             <UserProfile />
           </ProtectedRoute>
         }/>
-
         <Route path="/change-password" element={
           <ProtectedRoute allowedRoles={["donor", "patient", "admin", "user"]}>
             <ChangePassword />
           </ProtectedRoute>
         }/>
-
         <Route path="/request-blood" element={
           <ProtectedRoute allowedRoles={["patient"]}>
             <RequestBlood />
           </ProtectedRoute>
         }/>
-
         <Route path="/my-requests" element={
           <ProtectedRoute allowedRoles={["patient"]}>
             <MyRequests />
           </ProtectedRoute>
         }/>
-
         <Route path="/view-requests" element={
           <ProtectedRoute allowedRoles={["donor", "admin"]}>
             <ViewRequests />
@@ -91,10 +75,8 @@ function App() {
           </ProtectedRoute>
         }/>
       </Routes>
-
       <ToastContainer position="top-center" autoClose={2000} />
     </Router>
   );
 }
-
 export default App;
