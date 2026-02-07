@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './UserProfile.css';
-
 function UserProfile() {
   const [userData, setUserData] = useState(null);
   const [editMode, setEditMode] = useState(false);
@@ -17,19 +16,14 @@ function UserProfile() {
     role: '',
     isAvailable: true
   });
-
   const cities = ['Pune', 'Mumbai', 'Delhi', 'Bangalore', 'Chennai'];
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
-
   const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
   const email = storedUser?.email;
-
   // Fetch user profile
   useEffect(() => {
     if (!email) return;
-
    axios.get(`http://localhost:8080/api/users/email?email=${encodeURIComponent(email)}`)
-
       .then(res => {
         const data = res.data;
         setUserData(data);
@@ -65,11 +59,9 @@ function UserProfile() {
         toast.error("Update failed");
       });
   };
-
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
     const reader = new FileReader();
     reader.onloadend = () => {
       localStorage.setItem('profileImage', reader.result);
@@ -77,11 +69,9 @@ function UserProfile() {
     };
     reader.readAsDataURL(file);
   };
-
   // Toggle donor availability
   const handleAvailabilityToggle = () => {
     if (!userData?.id) return;
-
     axios.put(`http://localhost:8080/api/users/${userData.id}/availability?isAvailable=${!userData.isAvailable}`)
       .then(res => {
         const updatedUser = res.data;
@@ -94,9 +84,7 @@ function UserProfile() {
         toast.error("Failed to update availability");
       });
   };
-
   if (!userData) return <p className="text-center mt-4">Loading user info...</p>;
-
   return (
     <div className={`profile-background ${darkMode ? 'dark-mode' : ''}`}>
       <div className={`container mt-5 profile-container ${darkMode ? 'dark-mode' : ''}`}>
@@ -106,7 +94,6 @@ function UserProfile() {
             {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
           </button>
         </div>
-
         <div className="card shadow-lg profile-card p-4 animated-fade">
           <div className="row align-items-center">
             <div className="col-md-4 text-center">
@@ -119,24 +106,20 @@ function UserProfile() {
                 <input type="file" accept="image/*" className="form-control" onChange={handleImageUpload} />
               )}
             </div>
-
             <div className="col-md-8">
               {editMode ? (
                 <>
                   <input name="name" className="form-control my-2" value={formData.name} onChange={handleChange} />
                   <input name="email" className="form-control my-2" value={formData.email} readOnly />
                   <input name="phoneNumber" className="form-control my-2" value={formData.phoneNumber} onChange={handleChange} />
-
                   <select name="city" className="form-control my-2" value={formData.city} onChange={handleChange}>
                     <option value="">Select City</option>
                     {cities.map(city => <option key={city} value={city}>{city}</option>)}
                   </select>
-
                   <select name="bloodGroup" className="form-control my-2" value={formData.bloodGroup} onChange={handleChange}>
                     <option value="">Select Blood Group</option>
                     {bloodGroups.map(bg => <option key={bg} value={bg}>{bg}</option>)}
                   </select>
-
                   <input name="role" className="form-control my-2" value={formData.role} readOnly />
 
                   <button className="btn btn-success me-2 mt-2" onClick={handleUpdate}>💾 Save</button>
@@ -165,7 +148,6 @@ function UserProfile() {
                       </label>
                     </div>
                   )}
-
                   <button className="btn btn-primary mt-2" onClick={() => setEditMode(true)}>✏️ Edit Profile</button>
                 </>
               )}
