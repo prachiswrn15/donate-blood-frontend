@@ -58,7 +58,6 @@ function Register() {
             onChange={handleChange}
             required
           />
-
           <input
             type="password"
             name="password"
@@ -125,5 +124,4 @@ function Register() {
     </div>
   );
 }
-
 export default Register;
