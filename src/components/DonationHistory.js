@@ -3,7 +3,7 @@ import axios from "axios";
 
 function DonationHistory() {
   const [history, setHistory] = useState([]);
-  const donorId = localStorage.getItem("donorId"); // ya tumhare login logic ke hisaab se
+  const donorId = localStorage.getItem("donorId");
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/donors/${donorId}/donation-history`)
