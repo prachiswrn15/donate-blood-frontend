@@ -37,8 +37,6 @@
 .App-link {
   color: #61dafb;
 }
-
-
 .home-background,
 .home-background-overlay {
   min-height: 100vh;
@@ -47,26 +45,21 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .home-background-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
 }
-
-
 .glass-navbar {
   background-color: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(220, 53, 69, 0.1);
   z-index: 1000;
 }
-
 .navbar-brand {
   font-weight: bold;
   font-size: 1.5rem;
   color: #dc3545 !important;
 }
-
 .navbar .nav-link {
   font-weight: 500;
   font-size: 0.95rem;
@@ -75,7 +68,6 @@
   transition: all 0.3s ease;
   position: relative;
 }
-
 .navbar .nav-link:hover {
   background-color: #dc3545;
   color: white !important;
@@ -85,7 +77,6 @@
   color: #dc3545 !important;
   font-weight: 600;
 }
-
 .navbar-nav .nav-link::after {
   content: '';
   position: absolute;
@@ -98,12 +89,10 @@
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
-
 .navbar-nav .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 .navbar .btn-outline-danger {
   font-size: 0.85rem;
   padding: 6px 14px;
@@ -115,8 +104,6 @@
   background-color: #dc3545;
   color: #fff;
 }
-
-
 .view-requests-background {
   min-height: 100vh;
   background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
@@ -127,12 +114,10 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
 .custom-table {
   border-radius: 10px;
   overflow: hidden;
 }
-
 .custom-table th,
 .custom-table td {
   vertical-align: middle;
@@ -141,17 +126,13 @@
 .custom-table tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
-
 .custom-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-
 .custom-table tbody tr:hover {
   background-color: #f0f0f0;
   transition: background-color 0.2s ease-in-out;
 }
-
-
 .manage-requests-background {
   min-height: 100vh;
   background-image: url('https://user-images.githubusercontent.com/106293646/236382080-c6479537-5e6a-4f57-a3c9-7aabceec50ed.png');
@@ -166,7 +147,6 @@
   background-color: #ffffff;
   border-radius: 15px;
 }
-
 /* Status Badges */
 .status-badge {
   font-size: 0.85rem;
@@ -175,45 +155,36 @@
   font-weight: 500;
   display: inline-block;
 }
-
 .status-badge.pending {
   background-color: #fff3cd;
   color: #856404;
 }
-
 .status-badge.completed {
   background-color: #d4edda;
   color: #155724;
 }
-
 .status-badge.rejected {
   background-color: #f8d7da;
   color: #721c24;
 }
-
-
 .profile-card {
   max-width: 500px;
   width: 100%;
   border-radius: 20px;
   background-color: #ffffff;
 }
-
 .profile-card h2 {
   font-weight: 700;
   font-size: 1.5rem;
 }
-
 .profile-card img {
   object-fit: cover;
   border: 3px solid #dc3545;
 }
-
 .user-info p {
   font-size: 1rem;
   margin-bottom: 10px;
 }
-
 /* Buttons */
 .btn-primary,
 .btn-success,
@@ -224,7 +195,6 @@
   font-size: 0.85rem;
   padding: 5px 10px;
 }
-
 /* 🩸 Blood Request Cards */
 .section-divider {
   margin-top: 40px;
@@ -232,7 +202,6 @@
   font-weight: 600;
   color: #fff;
 }
-
 .blood-card {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
@@ -248,7 +217,6 @@
   border-radius: 20px;
   margin-top: 10px;
 }
-
 .card-title {
   font-weight: 600;
   font-size: 1.1rem;
@@ -309,7 +277,6 @@
   flex-direction: column;
   justify-content: center;
 }
-
 .contact-card {
   background-color: white;
   border-radius: 15px;
@@ -318,7 +285,6 @@
   max-width: 500px;
   margin: 0 auto 2rem;
 }
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -327,7 +293,6 @@
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
 .contact-form button {
   background-color: #dc3545;
   color: white;
@@ -336,8 +301,6 @@
   border-radius: 8px;
   cursor: pointer;
 }
-
-
 .change-password-background {
   background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
     url('https://data.1freewallpapers.com/detail/donate-blood-and-save-lives.jpg');
@@ -349,12 +312,10 @@
   align-items: center;
   padding: 20px;
 }
-
 .change-password-container {
   max-width: 400px;
   width: 100%;
 }
-
 .glass-card {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
@@ -362,7 +323,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
 }
-
 .custom-input {
   margin-bottom: 15px;
   padding: 10px 15px;
@@ -377,7 +337,6 @@
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
   outline: none;
 }
-
 .custom-btn {
   background-color: #dc3545;
   color: #fff;
@@ -387,12 +346,10 @@
   border: none;
   transition: all 0.3s ease;
 }
-
 .custom-btn:hover {
   background-color: #c82333;
   transform: scale(1.02);
 }
-
 .register-background {
   min-height: 100vh;
   background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
@@ -405,7 +362,6 @@
   align-items: center;
   padding: 30px;
 }
-
 .register-card {
   max-width: 450px;
   width: 100%;
@@ -416,7 +372,6 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
-
 .register-card:hover {
   transform: scale(1.01);
 }
@@ -427,7 +382,6 @@
   margin-bottom: 25px;
   color: #dc3545;
 }
-
 .register-card input {
   margin-bottom: 15px;
   padding: 12px 15px;
@@ -442,7 +396,6 @@
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
   outline: none;
 }
-
 .register-card .btn-primary {
   width: 100%;
   padding: 12px;
@@ -671,10 +624,6 @@
   background-color: #f8d7da;
   color: #721c24;
 }
-/* Contact Page Wrapper */
-/* Background with image + overlay */
-/* Contact Page Background + Overlay */
-.contact-background {
   background: url('https://thumbs.dreamstime.com/b/hospital-building-ambulance-urban-background-modern-medical-center-first-aid-84563364.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
@@ -683,7 +632,6 @@
   padding: 2rem;
   position: relative;
 }
-
 .contact-background .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
