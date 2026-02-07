@@ -12,10 +12,8 @@ function RequestBlood() {
     bloodGroup: '',
     location: '',
     reason: '',
-    requestedBy: '' // hidden - backend ke liye
+    requestedBy: ''
   });
-
-  // Logged-in user email ko requestedBy me set karo
   useEffect(() => {
     try {
       const storedUser = localStorage.getItem("loggedInUser");
@@ -27,11 +25,9 @@ function RequestBlood() {
       console.error("localStorage parse error:", e);
     }
   }, []);
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
   const isFormValid = () =>
     form.patientName.trim() &&
     form.age.trim() &&
@@ -48,10 +44,9 @@ function RequestBlood() {
       return;
     }
     try {
-       
       const payload = {
         ...form,
-        age: form.age ? parseInt(form.age, 10) : null, // ✅ number
+        age: form.age ? parseInt(form.age, 10) : null,
       };
        console.log("Submitting payload:", payload); // debug log
     await axios.post("http://localhost:8080/api/requests", payload);
@@ -71,14 +66,12 @@ function RequestBlood() {
       toast.error("❌ Error submitting request");
     }
   };
-
   return (
     <div className="request-background d-flex justify-content-center align-items-center">
       <ToastContainer position="top-center" autoClose={2000} />
       <div className="glass-card request-card p-4">
         <h3 className="text-center mb-4 text-danger">🩸 Request Blood</h3>
         <form onSubmit={handleSubmit}>
-
           <input
             className="form-control custom-input mb-3"
             name="patientName"
@@ -86,7 +79,6 @@ function RequestBlood() {
             value={form.patientName}
             onChange={handleChange}
           />
-
           <input
             type="number"
             className="form-control custom-input mb-3"
@@ -95,7 +87,6 @@ function RequestBlood() {
            value={form.age || ""}
             onChange={handleChange}
           />
-
           <select
             className="form-control custom-input mb-3"
             name="gender"
@@ -127,7 +118,6 @@ function RequestBlood() {
             value={form.location}
             onChange={handleChange}
           />
-
           <input
             className="form-control custom-input mb-4"
             name="reason"
@@ -135,7 +125,6 @@ function RequestBlood() {
             value={form.reason}
             onChange={handleChange}
           />
-
           {/* requestedBy UI me nahi dikhana */}
           <button className="btn custom-btn w-100" type="submit">
             Submit Request
