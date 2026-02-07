@@ -1,13 +1,10 @@
-// src/pages/Register.js
 
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
 function Register() {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,15 +14,12 @@ function Register() {
     phoneNumber: '',
     role: 'users',
   });
-
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
   const cities = ['Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Bangalore', 'Hyderabad'];
   const roles = ['users', 'admin', 'patient', 'donor'];
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,7 +28,6 @@ function Register() {
       navigate('/login');
     } catch (error) {
       console.error('Registration Error:', error);
-
       if (error.response && error.response.status === 409) {
         toast.error('This email is already registered!');
       } else {
@@ -42,7 +35,6 @@ function Register() {
       }
     }
   };
-
   return (
     <div className="change-password-background">
       <div className="glass-card change-password-container">
@@ -57,7 +49,6 @@ function Register() {
             onChange={handleChange}
             required
           />
-
           <input
             type="email"
             name="email"
@@ -77,7 +68,6 @@ function Register() {
             onChange={handleChange}
             required
           />
-
           <select
             name="bloodGroup"
             className="custom-input"
@@ -92,7 +82,6 @@ function Register() {
               </option>
             ))}
           </select>
-
           <select
             name="city"
             className="custom-input"
@@ -107,7 +96,6 @@ function Register() {
               </option>
             ))}
           </select>
-
           <input
             type="text"
             name="phoneNumber"
@@ -117,7 +105,6 @@ function Register() {
             onChange={handleChange}
             required
           />
-
           <select
             name="role"
             className="custom-input"
@@ -130,7 +117,6 @@ function Register() {
               </option>
             ))}
           </select>
-
           <button type="submit" className="custom-btn w-100 mt-2">
             Register
           </button>
