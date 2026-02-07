@@ -2,18 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./ViewRequests.css"; // ✅ Custom CSS
-
+import "./ViewRequests.css";
 function ViewRequests() {
   const [requests, setRequests] = useState([]);
   const [search, setSearch] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [sortOrder, setSortOrder] = useState("latest");
-
   useEffect(() => {
     fetchRequests();
   }, []);
-
   const fetchRequests = async () => {
     try {
       const response = await axios.get("http://localhost:8080/api/requests");
@@ -23,8 +20,6 @@ function ViewRequests() {
       toast.error("Failed to load requests");
     }
   };
-
-  // ✅ Handle Accept / Reject
   const handleAction = async (id, action) => {
     try {
       if (action === "Accepted") {
@@ -47,7 +42,7 @@ function ViewRequests() {
     }
   };
 
-  // ✅ Filter + Search + Sort
+  //Filter + Search + Sort
   const filteredRequests = requests
     .filter((req) =>
       [req.patientName, req.bloodGroup, req.location]
@@ -57,7 +52,6 @@ function ViewRequests() {
     )
     .filter((req) => (filterStatus === "All" ? true : req.status === filterStatus))
     .sort((a, b) => (sortOrder === "latest" ? b.id - a.id : a.id - b.id));
-
   return (
     <div className="requests-page">
       <div className="overlay">
@@ -124,7 +118,6 @@ function ViewRequests() {
                           {req.status}
                         </span>
                       </p>
-
                       {/* Buttons */}
                       <div className="d-flex justify-content-between">
                         <button
@@ -149,7 +142,6 @@ function ViewRequests() {
             )}
           </div>
         </div>
-
         <div className="text-center text-white mt-4 fst-italic">
           <p>"Donate blood and be the reason for someone’s heartbeat."</p>
         </div>
@@ -158,5 +150,4 @@ function ViewRequests() {
     </div>
   );
 }
-
 export default ViewRequests;
