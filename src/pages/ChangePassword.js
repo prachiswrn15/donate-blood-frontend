@@ -1,37 +1,30 @@
-// ChangePassword.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import '../App.css'; // Import the new CSS file
-
+import '../App.css'; //
 function ChangePassword() {
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
     confirmPassword: ''
   });
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (formData.newPassword !== formData.confirmPassword) {
       toast.error("New and Confirm Password do not match");
       return;
     }
-
     const email = localStorage.getItem('loggedInUser');
-
     try {
       const response = await axios.put('http://localhost:8080/api/users/change-password', {
         email,
         currentPassword: formData.currentPassword,
         newPassword: formData.newPassword,
       });
-
       toast.success(response.data);
       setFormData({ currentPassword: '', newPassword: '', confirmPassword: '' });
     } catch (error) {
@@ -42,7 +35,6 @@ function ChangePassword() {
       }
     }
   };
-
   return (
     <div className="change-password-background">
       <div className="change-password-container">
