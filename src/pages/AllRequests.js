@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 function AllRequests() {
   const [requests, setRequests] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [bloodGroup, setBloodGroup] = useState("");
-
   useEffect(() => {
     axios.get("http://localhost:8080/api/requests")
       .then(res => {
@@ -19,18 +17,15 @@ function AllRequests() {
   const handleFilter = (e) => {
     const value = e.target.value;
     setBloodGroup(value);
-
     if (value === "") {
       setFiltered(requests);
     } else {
       setFiltered(requests.filter(req => req.bloodGroup === value));
     }
   };
-
   return (
     <div className="container mt-4">
       <h2>All Blood Requests</h2>
-
       {/* Dropdown Filter */}
       <div className="mb-3">
         <label>Filter by Blood Group: </label>
@@ -46,7 +41,6 @@ function AllRequests() {
           <option value="AB-">AB-</option>
         </select>
       </div>
-
       <table className="table table-bordered">
         <thead>
           <tr>
@@ -70,5 +64,4 @@ function AllRequests() {
     </div>
   );
 }
-
 export default AllRequests;
